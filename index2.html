@@ -1,0 +1,150 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
+	<link href="css/index1.css" rel="stylesheet" type="text/css" />
+  </head>
+<body>
+  <div class="overlay">
+  </div>
+  <div class="row action-container">
+    <div class="col-l4 offset-l4 col-m8 offset-m2 col-s12 action-bar">
+	  <span>Serach By</span>
+	    <ul>
+	      <li class="action-item"><i class="icon-img icon ion-ios-person"></i>Name</li>
+		  <li class="action-item"><i class="icon-img icon ion-bookmark"></i>Unique Identifire</li>
+		  <li class="action-item"><i class="icon-img icon ion-location"></i>Address</li>
+	    </ul>
+	</div>
+  </div>
+  <div class="container">
+	<div class="row header">
+	  <div class="col-l6 col-m16 col-s6" >
+	    <span class="float-left medium-large-logo">
+		  <img src="images/logo.png">
+		</span>
+		<span class="float-left small-logo">
+		  <img src="images/logo_small.png">
+		</span>
+	  </div>
+	  <div class="col-l6 col-m6 col-s6 float-right" >
+	    <span class="float-right">Username</span>
+	  </div>
+	</div>
+	<div class="row desc">
+	   <!--<div style="background:red;height:100%;width:100%;position:absolute;"></div>-->
+	   <div class="col-l12 col-m12 col-s12">
+	      <div class="row">
+		    <div class="col-l12 col-m12 col-s12">
+	          <strong style="font-size:30px;"> Welcome to OnDemand platform</strong>
+		      <br>
+		      <span style="font-size:15px;">Subtitle will come over here</span>
+		    </div>
+		  </div>
+	      <div class="row">
+		     <div class="col-l12 col-m12 col-s12" style="text-align:center;">
+		       <span class="sel-pro active"  onclick="changeActive(this,'sel-pro')">CGI</span>
+			   <span class="sel-pro"  onclick="changeActive(this,'sel-pro')">Gold</span>
+		     </div>
+		  </div>
+		  <div class="row search-box-new">
+		    <div class="col-l12 col-m12 col-s12"> 
+		       <span>
+			     <form onsubmit="return getActionBar()" style="padding:0;margin:0;">
+		           <input type="text" placeholder="Search Here">
+			       <i class="search-icon"></i>
+			     </form>
+			   </span>
+	        </div>
+		  </div>
+	   </div>
+	</div>
+	<div class="row list-part">
+	    <div class="col-l12 col-m12 col-s12" style="padding-bottom: 20px;background: #fff;border-bottom: 2px solid #efeeee;">
+            <span class="other-option-des">Or</span>
+		    <div class="or-container">
+		      <span class="or"> Treader a project using following options. Create project using template listed below to begin your journey.</span>
+		    </div>
+		</div>
+	    <div class="col-l8 offset-l2 col-m8 offset-m2 col-s10 offset-s1">
+            <ul class="search-type-selector">
+              <li>
+                <input type="radio" id="e-option" name="selector">
+                <label for="e-option">Enrichment</label>
+                <div class="check"></div>
+		     </li>
+             <li>
+                <input type="radio" id="m-option" name="selector">
+                <label for="m-option">Map asset to issuer</label>
+                <div class="check"><div class="inside"></div></div>
+             </li>
+             <li>
+                <input type="radio" id="d-option" name="selector">
+                <label for="d-option">Data cross referencing</label>    
+                <div class="check"><div class="inside"></div></div>
+             </li>
+             <li>
+                <input type="radio" id="c-option" name="selector">
+                <label for="c-option">Client hierarchy</label>
+                <div class="check"><div class="inside"></div></div>
+             </li>
+             <li>
+                <input type="radio" id="cr-option" name="selector">
+                <label for="cr-option">Client rating</label>    
+                <div class="check"><div class="inside"></div></div>
+             </li>
+             <li>
+                <input type="radio" id="a-option" name="selector">
+                <label for="a-option">Asset rating</label>    
+                <div class="check"><div class="inside"></div></div>
+             </li>
+            </ul>
+	   </div>
+	   <div class="col-l4 offset-l4 col-m8 offset-m2 col-s10 offset-s1">
+		 <div>
+		    <button class="btn">Create Project</button>
+		 </div>
+	   </div>
+	</div>
+</div>
+<script>
+   function $(className){
+     return document.getElementsByClassName(className);
+   }
+  function getActionBar(){
+    $('overlay')[0].style.display="block";
+    $('action-container')[0].style.bottom=0;
+	return false;
+  }
+  var length=$('action-item').length;
+    for(var i=0;i<length;i++){
+      $('action-item')[i].addEventListener('click', function(){
+        $('overlay')[0].style.display="none";
+        $('action-container')[0].style.bottom=-215;
+    });
+  } 
+  $('search-icon')[0].addEventListener('click', function(){
+    getActionBar();
+  });
+
+  var B = document.body,
+    H = document.documentElement,
+    height;
+  if (typeof document.height !== 'undefined') {
+    height = document.height;
+  } else {
+    height = Math.max( B.scrollHeight, B.offsetHeight,H.clientHeight, H.scrollHeight, H.offsetHeight );
+  }
+
+  function changeActive(ele, className){
+    var sel = $(className);
+    for(var i=0;i<sel.length;i++){ 
+	    sel[i].classList.remove("active");  
+	}
+	 ele.classList.add("active");
+  }  
+</script>
+ </body>
+</html>
