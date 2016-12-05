@@ -205,7 +205,7 @@ input[type=radio]:checked ~ label{
 }
 .list-part{
   background: #f7f7f7;
-  height:340px;
+  height:100%;
 }
 .list-part [class*="col-"]{
   padding:0;
